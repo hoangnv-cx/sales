@@ -66,7 +66,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 		.authorizeRequests().antMatchers("/api/admin/item").hasAnyRole("ADMIN-ITEM","ADMIN-ALL").and()
 		.authorizeRequests().antMatchers("/api/admin/help","/admin/help**").hasAnyRole("ADMIN-HELP","ADMIN-ALL").and()
 		.authorizeRequests().antMatchers("/web/item/**").permitAll()
-		.antMatchers("/api/web/comment").authenticated()
+		.antMatchers("/api/web/comment/**").authenticated()
 		.anyRequest().permitAll();
 		
 		//http.rememberMe().key("uniqueAndSecret").tokenValiditySeconds(1296000);

@@ -1,5 +1,7 @@
 package com.java.sales.dto;
 
+import java.util.List;
+
 public class CommentDTO extends BaseDTO{
 	
 	
@@ -7,7 +9,16 @@ public class CommentDTO extends BaseDTO{
 	private Long useridcomment;
 	private Long itemComment;
 	private String userComment;
+	private List<ReplyCommentDTO> replyComments;
 	
+	
+	
+	public List<ReplyCommentDTO> getReplyComments() {
+		return replyComments;
+	}
+	public void setReplyComments(List<ReplyCommentDTO> replyComments) {
+		this.replyComments = replyComments;
+	}
 	public String getComments() {
 		return comments;
 	}

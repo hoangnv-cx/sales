@@ -8,13 +8,13 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "replycomment")
-public class ReplyComment extends BaseEntity{
+public class ReplyCommentEntity extends BaseEntity{
 
 	@Column(name = "replycomment")
 	private String replyComment;
 	
 	@ManyToOne
-    @JoinColumn(name = "reply_comment")
+    @JoinColumn(name = "comment_id")
     private CommentEntity comment;
 
 	public String getReplyComment() {

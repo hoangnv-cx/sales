@@ -29,7 +29,7 @@ public class CommentEntity extends BaseEntity{
 
 	
 	@OneToMany(mappedBy = "comment")
-	private List<ReplyComment> replyComments = new ArrayList<>();
+	private List<ReplyCommentEntity> replyComments = new ArrayList<>();
 	
 	public String getComments() {
 		return comments;
