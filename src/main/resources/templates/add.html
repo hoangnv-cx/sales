@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <title>Login</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   </head>
+   <body>
+      <!-- Include _menu.html -->
+      <th:block th:include="/_menu"></th:block>
+       
+      <h1>add</h1>
+       
+      
+      
+      <h3>Enter user name and password:</h3>
+      <form id="formSubmit">
+         <table>
+            <tr>
+               <td>User:</td>
+               <td><input type='text' name='userName' value=''></td>
+            </tr>
+            <tr>
+               <td>Password:</td>
+               <td><input type='password' name='password' /></td>
+            </tr>
+            <tr>
+               <td>full name</td>
+               <td><input type="text" name="fullName" /></td>
+            </tr> 
+            <tr>
+               <td>full name</td>
+               <td><input type="text" name="roleCode" /></td>
+            </tr>            
+            <tr>
+               <td><input type="button" id="btnAddUser" class="btnAddUser" /></td>
+            </tr>
+         </table>
+      </form>
+       
+      <br>
+      Username/pass:
+      <ul>
+        <li>dbuser1/123</li>
+        <li>dbadmin1/123</li>
+      </ul>  
+
+<script>
+
+    $('#btnAddUser').click(function (e) {
+        e.preventDefault();
+        var data = {};
+        var formData = $('#formSubmit').serializeArray();
+        $.each(formData, function (i, v) {
+            data[""+v.name+""] = v.value;
+        });
+       
+    
+        
+            addNew(data);
+       
+    });
+    function addNew(data) {
+        $.ajax({
+            url: '${/api/user}',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(data),
+            dataType: 'json',
+            success: function (result) {
+            	window.location.href = "${UserUrlList}?page=1&limit=4&message=insert_success";
+            /* 	?id="+result.id+"&message=insert_success */
+            },
+            error: function (error) {
+            	window.location.href = "${UserUrlList}?page=1&limit=4&message=error_system";
+            	/* ?page=1&limit=2&message=error_system */
+            }
+        });
+    }
+   
+    </script>  
+       
+   </body>
+    
+</html>
