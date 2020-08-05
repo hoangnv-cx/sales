@@ -1,12 +1,18 @@
 package com.java.sales.converter;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.java.sales.Utils.DateUtil;
 import com.java.sales.Utils.SecurityUtils;
 import com.java.sales.dto.HelpDTO;
 import com.java.sales.entity.HelpEntity;
 @Component
 public class HelpConverter {
+	
+	
+	@Autowired
+	private DateUtil dateUtil;
 	public HelpEntity dtoToEntity(HelpDTO dto) {
 		HelpEntity entity=new HelpEntity();
 		entity.setUsername(SecurityUtils.getName());
@@ -29,7 +35,10 @@ public class HelpConverter {
 		}else {
 			model.setStatusTitle("Đã xử lý");
 		}
-
+		model.setCreateDate(dateUtil.getDate(entity.getCreateDate()));
+		model.setModifiedDate(dateUtil.getDate(entity.getModifiedDate()));
+		model.setCreatedBy(entity.getCreatedBy());
+		model.setModifiedBy(entity.getModifiedBy());
 		model.setTitle(entity.getTitle());
 		model.setReply(entity.getReply());
 		return model;

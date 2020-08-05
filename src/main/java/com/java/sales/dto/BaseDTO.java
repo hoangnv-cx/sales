@@ -1,13 +1,11 @@
 package com.java.sales.dto;
 
-import java.util.Date;
-
 public class BaseDTO {
 
 	
 	private Long id;
-	private Date createDate;
-	private Date modifiedDate;
+	private String createDate;
+	private String modifiedDate;
 	private String createdBy;
 	private String modifiedBy;
 	
@@ -18,16 +16,17 @@ public class BaseDTO {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public Date getCreateDate() {
+	
+	public String getCreateDate() {
 		return createDate;
 	}
-	public void setCreateDate(Date createDate) {
+	public void setCreateDate(String createDate) {
 		this.createDate = createDate;
 	}
-	public Date getModifiedDate() {
+	public String getModifiedDate() {
 		return modifiedDate;
 	}
-	public void setModifiedDate(Date modifiedDate) {
+	public void setModifiedDate(String modifiedDate) {
 		this.modifiedDate = modifiedDate;
 	}
 	public String getCreatedBy() {

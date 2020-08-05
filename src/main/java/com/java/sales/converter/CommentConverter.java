@@ -3,8 +3,10 @@ package com.java.sales.converter;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.java.sales.Utils.DateUtil;
 import com.java.sales.dto.CommentDTO;
 import com.java.sales.dto.ReplyCommentDTO;
 import com.java.sales.entity.CommentEntity;
@@ -13,7 +15,8 @@ import com.java.sales.entity.ReplyCommentEntity;
 @Component
 public class CommentConverter {
 
-	
+	@Autowired
+	private DateUtil dateUtil;
 	
 	public CommentEntity dtoToEntity(CommentDTO dto) {
 		CommentEntity entity=new CommentEntity();
@@ -35,18 +38,18 @@ public class CommentConverter {
 			commentDTO.setId(commentEntity.getId());
 			commentDTO.setReplyComment(commentEntity.getReplyComment());
 			commentDTO.setUserName(commentEntity.getUserid().getUserName());
-			commentDTO.setCreateDate(commentEntity.getCreateDate());
+			commentDTO.setCreateDate(dateUtil.getDate(commentEntity.getCreateDate()));
 			commentDTO.setCreatedBy(commentEntity.getCreatedBy());
 			commentDTO.setModifiedBy(commentEntity.getModifiedBy());
-			commentDTO.setModifiedDate(commentEntity.getModifiedDate());
+			commentDTO.setModifiedDate(dateUtil.getDate(commentEntity.getModifiedDate()));
 			
 			replyCommentDTOs.add(commentDTO);
 		}
 		dto.setReplyComments(replyCommentDTOs);
-		dto.setCreateDate(entity.getCreateDate());
+		dto.setCreateDate(dateUtil.getDate(entity.getCreateDate()));
 		dto.setCreatedBy(entity.getCreatedBy());
 		dto.setModifiedBy(entity.getModifiedBy());
-		dto.setModifiedDate(entity.getModifiedDate());
+		dto.setModifiedDate(dateUtil.getDate(entity.getModifiedDate()));
 		return dto;
 	}
 	public CommentEntity dtoToEntity(CommentDTO dto,CommentEntity entity) {

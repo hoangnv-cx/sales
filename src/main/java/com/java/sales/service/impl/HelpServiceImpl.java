@@ -8,6 +8,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.java.sales.Utils.SecurityUtils;
+import com.java.sales.Utils.SendMail;
 import com.java.sales.converter.HelpConverter;
 import com.java.sales.dto.HelpDTO;
 import com.java.sales.entity.HelpEntity;
@@ -23,6 +24,8 @@ public class HelpServiceImpl implements IHelpService{
 	HelpConverter helpConverter;
 	@Autowired
 	IUserRepository userRepository;
+	@Autowired
+	private SendMail sendMail;
 	@Override
 	public HelpDTO save(HelpDTO dto) {
 		HelpEntity entity=new HelpEntity();
@@ -32,6 +35,7 @@ public class HelpServiceImpl implements IHelpService{
 			UserEntity userEntity=userRepository.findByUserName(SecurityUtils.getName());							
 			entity.setUserHelp(userEntity);
 			entity.setStatus(1);
+			sendMail.sendEmailTest(entityHelp.getEmail(), entityHelp.getTitle(), entityHelp.getReply());
 		}else {
 			entity=helpConverter.dtoToEntity(dto);
 			entity.setStatus(0);		

@@ -10,9 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.java.sales.api.output.CommentOutput;
-import com.java.sales.api.output.UserOutput;
 import com.java.sales.dto.CommentDTO;
-import com.java.sales.dto.HelpDTO;
 import com.java.sales.dto.ReplyCommentDTO;
 import com.java.sales.service.ICommentService;
 import com.java.sales.service.IReplyCommentService;
