@@ -30,6 +30,14 @@ public class ItemEntity extends BaseEntity{
 	@OneToMany(mappedBy = "itemComment")
 	private List<CommentEntity> comments = new ArrayList<>();
 	
+	
+	
+	public List<CommentEntity> getComments() {
+		return comments;
+	}
+	public void setComments(List<CommentEntity> comments) {
+		this.comments = comments;
+	}
 	public ClassifyEntity getClassify() {
 		return classify;
 	}

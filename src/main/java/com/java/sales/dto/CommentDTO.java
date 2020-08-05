@@ -6,13 +6,20 @@ public class CommentDTO extends BaseDTO{
 	
 	
 	private String comments;
-	private Long useridcomment;
+	
 	private Long itemComment;
 	private String userComment;
 	private List<ReplyCommentDTO> replyComments;
+	private String userName;
 	
 	
 	
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 	public List<ReplyCommentDTO> getReplyComments() {
 		return replyComments;
 	}
@@ -25,12 +32,7 @@ public class CommentDTO extends BaseDTO{
 	public void setComments(String comments) {
 		this.comments = comments;
 	}
-	public Long getUseridcomment() {
-		return useridcomment;
-	}
-	public void setUseridcomment(Long useridcomment) {
-		this.useridcomment = useridcomment;
-	}
+	
 	public Long getItemComment() {
 		return itemComment;
 	}

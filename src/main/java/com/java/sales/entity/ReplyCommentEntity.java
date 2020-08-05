@@ -17,6 +17,21 @@ public class ReplyCommentEntity extends BaseEntity{
     @JoinColumn(name = "comment_id")
     private CommentEntity comment;
 
+	@ManyToOne
+    @JoinColumn(name = "replycommentid")
+    private UserEntity userid;
+	
+	
+	
+	
+	public UserEntity getUserid() {
+		return userid;
+	}
+
+	public void setUserid(UserEntity userid) {
+		this.userid = userid;
+	}
+
 	public String getReplyComment() {
 		return replyComment;
 	}

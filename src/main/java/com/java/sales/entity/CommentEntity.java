@@ -31,6 +31,17 @@ public class CommentEntity extends BaseEntity{
 	@OneToMany(mappedBy = "comment")
 	private List<ReplyCommentEntity> replyComments = new ArrayList<>();
 	
+	
+	
+	
+	public List<ReplyCommentEntity> getReplyComments() {
+		return replyComments;
+	}
+
+	public void setReplyComments(List<ReplyCommentEntity> replyComments) {
+		this.replyComments = replyComments;
+	}
+
 	public String getComments() {
 		return comments;
 	}

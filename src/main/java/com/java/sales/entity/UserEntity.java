@@ -35,8 +35,14 @@ public class UserEntity extends BaseEntity{
 	
 	@OneToMany(mappedBy = "userComment")
 	private List<CommentEntity> comments = new ArrayList<>();
+	
 	@OneToMany(mappedBy = "userHelp")
 	private List<HelpEntity> helps = new ArrayList<>();
+	
+	
+	@OneToMany(mappedBy = "userid")
+	private List<ReplyCommentEntity> replycommentid= new ArrayList<>();
+	
 	
 	
 	public String getUserName() {

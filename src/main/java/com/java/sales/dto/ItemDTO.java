@@ -1,5 +1,7 @@
 package com.java.sales.dto;
 
+import java.util.List;
+
 public class ItemDTO extends BaseDTO{
 
 	
@@ -9,9 +11,15 @@ public class ItemDTO extends BaseDTO{
 	private String shortDescription;
 	private String classifyCode;
 	private String classifyName;
+	private List<CommentDTO> comments;
 	
 	
-	
+	public List<CommentDTO> getComments() {
+		return comments;
+	}
+	public void setComments(List<CommentDTO> comments) {
+		this.comments = comments;
+	}
 	public String getClassifyName() {
 		return classifyName;
 	}

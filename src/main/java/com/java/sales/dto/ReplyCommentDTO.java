@@ -5,9 +5,16 @@ public class ReplyCommentDTO extends BaseDTO{
 	private String replyComment;
 	private CommentDTO comments;
 	private Long commentId;
+	private String userName;
 	
 	
 	
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 	public Long getCommentId() {
 		return commentId;
 	}
