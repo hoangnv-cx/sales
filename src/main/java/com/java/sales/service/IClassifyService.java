@@ -7,4 +7,5 @@ import com.java.sales.dto.ClassifyDTO;
 public interface IClassifyService {
 
 	List<ClassifyDTO> findAll();
+	ClassifyDTO save(ClassifyDTO dto);
 }

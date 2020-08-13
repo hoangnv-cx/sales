@@ -69,8 +69,7 @@ public class ItemConverter {
 		dto.setComments(commentDTOs);
 		return dto;
 	}
-	public ItemEntity dtoToEntity(ItemDTO dto,ItemEntity entity) {
-		
+	public ItemEntity dtoToEntity(ItemDTO dto,ItemEntity entity) {	
 		entity.setName(dto.getName());
 		entity.setPrice(dto.getPrice());
 		entity.setThumbnail(dto.getThumbnail());

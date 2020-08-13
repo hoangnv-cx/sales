@@ -66,6 +66,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 		.authorizeRequests().antMatchers("/api/admin/item").hasAnyRole("ADMIN-ITEM","ADMIN-ALL").and()
 		.authorizeRequests().antMatchers("/api/admin/help","/admin/help**").hasAnyRole("ADMIN-HELP","ADMIN-ALL").and()
 		.authorizeRequests().antMatchers("/web/item/**").permitAll()
+		.antMatchers("/api/admin/classify").hasRole("ADMIN-ALL")
 		.antMatchers("/api/web/comment/**").authenticated()
 		.antMatchers("/admin/comment/**").hasAnyRole("ADMIN-COMMENT","ADMIN-ALL")
 		.anyRequest().permitAll();

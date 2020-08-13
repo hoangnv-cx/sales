@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.java.sales.config.JwtTokenUtil;
-import com.java.sales.dto.JwtRequest;
 import com.java.sales.dto.JwtResponse;
+import com.java.sales.dto.UserDTO;
 import com.java.sales.service.impl.MyUserDetailsService;
 
 
@@ -31,12 +31,12 @@ public class JwtAuthenticationController {
 	private MyUserDetailsService userDetailsService;
 
 	@PostMapping(value = "/authenticate")
-	public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest) throws Exception {
+	public ResponseEntity<?> createAuthenticationToken(@RequestBody UserDTO authenticationRequest) throws Exception {
 
-		authenticate(authenticationRequest.getUsername(), authenticationRequest.getPassword());
+		authenticate(authenticationRequest.getUserName(), authenticationRequest.getPassword());
 
 		final UserDetails userDetails = userDetailsService
-				.loadUserByUsername(authenticationRequest.getUsername());
+				.loadUserByUsername(authenticationRequest.getUserName());
 
 		final String token = jwtTokenUtil.generateToken(userDetails);
 

@@ -35,17 +35,14 @@ public class UserServiceImpl implements IUserService{
 		
 		if(dto.getId() != null) {
 			UserEntity entity=userRepository.findOneById(dto.getId());
-			//if(entity.getUserName().equals(SecurityUtils.getName())) {
-				
-			//}
-			
 			entityItem=userConverter.dtoToEntity(dto, entity);		
 		}else {	
 			UserEntity entity=userRepository.findByUserName(dto.getUserName());
 			if (entity != null) {
 	            return null;
-	        }else {
+	        }else {	        	
 	        	entityItem=userConverter.dtoToEntity(dto);
+	        	
 	          }
 			
 		}

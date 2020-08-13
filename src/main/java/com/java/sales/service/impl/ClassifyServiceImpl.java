@@ -28,5 +28,18 @@ public class ClassifyServiceImpl implements IClassifyService{
 		}
 		return dtos;
 	}
+	@Override
+	public ClassifyDTO save(ClassifyDTO dto) {
+		ClassifyEntity entity=new ClassifyEntity();
+		if(dto.getId()!=null) {
+			ClassifyEntity classifyEntity=classRepository.findOneById(dto.getId());
+			entity=classifyConverter.dtoToEntity(dto, classifyEntity);
+		}else {
+			
+			entity=classifyConverter.dtoToEntity(dto);
+		}
+		classRepository.save(entity);
+		return classifyConverter.entityToDto(entity);
+	}
 
 }

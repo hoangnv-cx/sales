@@ -21,8 +21,8 @@ public class UserEntity extends BaseEntity{
 	private String userName;
 	@Column(name = "password")
 	private String password;
-	@Column(name = "fullname")
-	private String fullName;
+	
+	
 	
 	
 	
@@ -45,6 +45,27 @@ public class UserEntity extends BaseEntity{
 	
 	
 	
+	
+	
+	
+	public List<CommentEntity> getComments() {
+		return comments;
+	}
+	public void setComments(List<CommentEntity> comments) {
+		this.comments = comments;
+	}
+	public List<HelpEntity> getHelps() {
+		return helps;
+	}
+	public void setHelps(List<HelpEntity> helps) {
+		this.helps = helps;
+	}
+	public List<ReplyCommentEntity> getReplycommentid() {
+		return replycommentid;
+	}
+	public void setReplycommentid(List<ReplyCommentEntity> replycommentid) {
+		this.replycommentid = replycommentid;
+	}
 	public String getUserName() {
 		return userName;
 	}
@@ -57,12 +78,7 @@ public class UserEntity extends BaseEntity{
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getFullName() {
-		return fullName;
-	}
-	public void setFullName(String fullName) {
-		this.fullName = fullName;
-	}
+	
 	public List<RoleEntity> getRoles() {
 		return roles;
 	}

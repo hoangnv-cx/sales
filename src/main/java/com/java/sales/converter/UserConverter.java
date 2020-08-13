@@ -17,7 +17,7 @@ public class UserConverter {
 		UserEntity entity=new UserEntity();
 		entity.setUserName(dto.getUserName());
 		entity.setPassword(passwordEncoder.encode(dto.getPassword()));
-		entity.setFullName(dto.getFullName());
+		
 		return entity;
 	}
 	public UserDTO entityToDto(UserEntity entity) {
@@ -25,7 +25,7 @@ public class UserConverter {
 		dto.setId(entity.getId());
 		dto.setUserName(entity.getUserName());
 		dto.setPassword(entity.getPassword());
-		dto.setFullName(entity.getFullName());
+		
 		dto.setCreateDate(dateUtil.getDate(entity.getCreateDate()));
 		dto.setCreatedBy(entity.getCreatedBy());
 		dto.setModifiedBy(entity.getModifiedBy());
@@ -34,7 +34,7 @@ public class UserConverter {
 	}
 	public UserEntity dtoToEntity(UserDTO dto,UserEntity entity) {		
 		entity.setPassword(passwordEncoder.encode(dto.getPassword()));
-		entity.setFullName(dto.getFullName());
+		
 		return entity;
 	}
 }

@@ -77,7 +77,7 @@ public class ItemServiceImpl implements IItemService{
 
 	@Override
 	public List<ItemDTO> findAllByOrderByIdDesc() {
-		List<ItemEntity> entities=itemRepository.findAll();
+		List<ItemEntity> entities=itemRepository.findAllByOrderByIdDesc();
 		List<ItemDTO> dtos=new ArrayList<ItemDTO>();
 		for(ItemEntity entity:entities) {
 			ItemDTO dto=new ItemDTO();

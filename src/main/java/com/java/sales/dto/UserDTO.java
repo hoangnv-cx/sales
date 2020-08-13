@@ -11,11 +11,26 @@ public class UserDTO extends BaseDTO implements Serializable{
 	
 	private String password;
 
-	private String fullName;
+	
 
 	private List<RoleDTO> roleCodes;
 
 	private List<HelpDTO> helps;
+	
+	
+	
+
+	public UserDTO(String userName, String password) {
+	
+		this.userName = userName;
+		this.password = password;
+	}
+
+	public UserDTO() {
+		
+		
+	}
+
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
@@ -62,13 +77,11 @@ public class UserDTO extends BaseDTO implements Serializable{
 		this.password = password;
 	}
 
-	public String getFullName() {
-		return fullName;
-	}
 
-	public void setFullName(String fullName) {
-		this.fullName = fullName;
-	}
+
+
+	
+	
 	
 	
 }
