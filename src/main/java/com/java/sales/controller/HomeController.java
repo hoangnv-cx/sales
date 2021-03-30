@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.java.sales.Utils.WebUtils;
 
 @Controller
-//@EnableWebMvc
+
 public class HomeController {
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
@@ -56,4 +56,6 @@ public class HomeController {
  
         return "403Page";
     }
+
+//aaaaaa
 }
